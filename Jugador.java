@@ -1,0 +1,86 @@
+import java.awt.event.KeyEvent;
+
+import Entidad.Personaje;
+
+import java.awt.Graphics;
+import java.awt.Color;
+
+public class Jugador extends Personaje {
+
+    private int cantPiedras;
+
+    Mapa mapaObj = new Mapa();
+
+ 
+    private int ancho;
+    private int alto;
+
+    
+    
+    
+    public Jugador(int posX, int posY) {
+        super(10, posX, posY);
+        this.ancho = 20;
+        this.alto = 20;
+    }
+
+    public void paint(Graphics grafico) {
+        grafico.setColor(Color.green);
+        grafico.fillOval(getPosX() * 20, getPosY() * 20, ancho, alto);
+        grafico.setColor(Color.black);
+        grafico.drawRect(getPosX() * 20, getPosY() * 19, ancho, alto);
+
+    }
+
+
+    public void setCantPiedras(int cantPiedras) {
+        this.cantPiedras = cantPiedras;
+    }
+
+    public void movimiento(KeyEvent evento) { // Ahorita hago este método.
+        int[][] mapa = mapaObj.obtenerMapa();
+
+        if (evento.getKeyCode() == 87) {
+            if (mapa[getPosX()][(getPosY())-1] != 1) {
+                setPosY(getPosY()-1);  
+            }
+        }
+        if (evento.getKeyCode() == 83) {
+            if(mapa[getPosX()][(getPosY())+3] != 1){
+                setPosY(getPosY()+1);
+            }
+        }
+        if (evento.getKeyCode() == 65) {
+            if (mapa[(getPosX()-1)][getPosY()] != 1) {
+                setPosX(getPosX()-1);
+            }
+        }
+        if (evento.getKeyCode() == 68) {
+            if (mapa[(getPosX())+1][getPosY()] != 1) {
+                setPosX(getPosX()+1);
+            }
+        }
+    }
+
+    public void picar() {
+
+    }
+
+    @Override
+    public void moverse() {
+        
+        
+    }
+
+    @Override
+    public void morir() {
+        
+        
+    }
+
+    @Override
+    public void atacar() {
+        
+        
+    }
+}

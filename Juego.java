@@ -13,7 +13,7 @@ import java.awt.event.KeyListener;
 public class Juego extends JPanel{
 
     Mapa mapa = new Mapa();
-    Personaje personaje = new Personaje();
+    Jugador personaje = new Jugador(1,1);
     Enemigo enemigo1 = new Enemigo((int)(Math.random()*(12-1+1)+1),(int)(Math.random()*(21-7+1)+7));
     Enemigo enemigo2 = new Enemigo((int)(Math.random()*(12-1+1)+1),(int)(Math.random()*(36-27+1)+27));
     Enemigo enemigo3 = new Enemigo((int)(Math.random()*(38-18+1)+18),(int)(Math.random()*(12-1+1)+1));
