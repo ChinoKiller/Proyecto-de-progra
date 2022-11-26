@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Mapa {
-    private int[][] mapa;
+    int[][] mapa;
     private int fila=0;
     private int columna =0;
     private int numeroFilas=41;
@@ -12,7 +12,6 @@ public class Mapa {
 
     public void paint(Graphics grafico){
         int[][] mapa = obtenerMapa();
-
         for(fila=0; fila<numeroFilas; fila++){
             for(columna = 0; columna<numeroColumnas; columna++){
                 if(mapa[fila][columna]==1){
@@ -24,16 +23,16 @@ public class Mapa {
                     grafico.setColor(Color.black);
                     grafico.fillRect(fila*18, columna*17, ancho, alto);
                     grafico.setColor(Color.white);
-                    //grafico.drawRect(fila*18, columna*17, ancho, alto);
+                    //grafico.drawRect(fila*18, columna*17, ancho, alto);   //esta vara dibuja el contorno, se puede eliminar
                 }
             }
         }
     }
 
     public Mapa(){
-        int [][] mapa =            //Pero para eso supongo que ocuparía un set.
+        int [][] mapa =     //este es el constructor del mapa, cuando lo llama, se crea este y se llena el local.
         {{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-         {1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
          {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
          {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
          {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -74,18 +73,20 @@ public class Mapa {
          {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
          {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
     }; 
+    this.mapa = mapa;
     }
 
 
 
 
-    public int [][] obtenerMapa(){ //Mi idea es ir actualizando esta matriz en base a las coordenadas que se generan de los enemigos y demás.
-        return mapa;
+    public int [][] obtenerMapa(){ //devuelve el mapa
+        return this.mapa;
     }
 
-    public void setPosicionEnMatriz(int columna, int fila, int numeroDeObjeto){
-        mapa[columna][fila] = numeroDeObjeto;
+    public void setPosicionEnMatriz(int columna, int fila, int numeroDeObjeto){//esto nos va a servir para posicionar el objeto
+        this.mapa[columna][fila] = numeroDeObjeto;
     }
+
 
 
 
