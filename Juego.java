@@ -1,9 +1,8 @@
 //import javax.swing.ImageIcon;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import javafx.scene.image.Image;
+//import javafx.scene.image.Image;
 
 import java.lang.Math;
 
@@ -23,7 +22,7 @@ public class Juego extends JPanel{
     Enemigo enemigo3 = new Enemigo((int)(Math.random()*(38-18+1)+18),(int)(Math.random()*(12-1+1)+1));
     Enemigo enemigo4 = new Enemigo((int)(Math.random()*(38-19+1)+19),(int)(Math.random()*(25-18+1)+18));
     Enemigo enemigo5 = new Enemigo((int)(Math.random()*(38-19+1)+19),(int)(Math.random()*(36-31+1)+31));
-    static fondoPanel fondo = new fondoPanel();
+    //static fondoPanel fondo = new fondoPanel();
 
     public Juego(){
         addKeyListener(new KeyListener(){
@@ -96,7 +95,7 @@ public class Juego extends JPanel{
         }
     }
 
-    static class fondoPanel extends JPanel{
+    /*static class fondoPanel extends JPanel{
         private java.awt.Image imagen;
         
         public void paint(Graphics g){
@@ -105,15 +104,5 @@ public class Juego extends JPanel{
             setOpaque(false);
             super.paint(g);
         }
-    } 
-
-
-
-
-
-
-
-
-
-
+    }*/
 }

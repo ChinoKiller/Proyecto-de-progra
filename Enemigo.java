@@ -29,19 +29,16 @@ public class Enemigo extends Personaje {
 
     @Override
     public void moverse() {
-        // TODO Auto-generated method stub
         
     }
 
     @Override
     public void morir() {
-        // TODO Auto-generated method stub
         
     }
 
     @Override
     public void atacar() {
-        // TODO Auto-generated method stub
         
     }
     

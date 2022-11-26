@@ -1,13 +1,13 @@
 package Entidad;
 
-import javafx.scene.image.Image;
+//import javafx.scene.image.Image;
 
 public abstract class Personaje {
     //atrubutos
     private int vida;
     private int posX;
     private int posY;
-    private Image skin;
+    //private Image skin;
 
     //metodos
     
@@ -49,13 +49,11 @@ public abstract class Personaje {
         this.posY = posY;
     }
 
-    public Image getSkin() {
+    /*public Image getSkin() {
         return skin;
     }
 
     public void setSkin(Image skin) {
         this.skin = skin;
-    }
-
-
+    }*/
 }
