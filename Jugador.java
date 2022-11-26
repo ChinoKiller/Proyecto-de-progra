@@ -28,7 +28,7 @@ public class Jugador extends Personaje {
         grafico.setColor(Color.green);
         grafico.fillOval(getPosX() * 18, getPosY() * 17, ancho, alto);
         grafico.setColor(Color.black);
-        grafico.drawRect(getPosX() * 18, getPosY() * 17, ancho, alto);
+        //grafico.drawRect(getPosX() * 18, getPosY() * 17, ancho, alto);
 
     }
 
