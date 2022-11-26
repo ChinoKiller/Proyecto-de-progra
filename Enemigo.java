@@ -19,9 +19,9 @@ public class Enemigo extends Personaje {
 
     public void paint(Graphics grafico) {
         grafico.setColor(Color.red);
-        grafico.fillOval(getPosX() * 20, getPosY() * 20, ancho, alto);
+        grafico.fillOval(getPosX() * 18, getPosY() * 17, ancho, alto);
         grafico.setColor(Color.black);
-        grafico.drawRect(getPosX() * 20, getPosY() * 19, ancho, alto);
+        grafico.drawRect(getPosX() * 18, getPosY() * 17, ancho, alto);
 
     }
 

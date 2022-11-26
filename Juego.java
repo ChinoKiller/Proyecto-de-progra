@@ -1,6 +1,10 @@
 //import javax.swing.ImageIcon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import javafx.scene.image.Image;
+
 import java.lang.Math;
 
 import java.awt.Color;
@@ -19,7 +23,7 @@ public class Juego extends JPanel{
     Enemigo enemigo3 = new Enemigo((int)(Math.random()*(38-18+1)+18),(int)(Math.random()*(12-1+1)+1));
     Enemigo enemigo4 = new Enemigo((int)(Math.random()*(38-19+1)+19),(int)(Math.random()*(25-18+1)+18));
     Enemigo enemigo5 = new Enemigo((int)(Math.random()*(38-19+1)+19),(int)(Math.random()*(36-31+1)+31));
-
+    static fondoPanel fondo = new fondoPanel();
 
     public Juego(){
         addKeyListener(new KeyListener(){
@@ -55,17 +59,32 @@ public class Juego extends JPanel{
         enemigo4.paint(grafico);
         enemigo5.paint(grafico);
     }
+
+
+
+
+
+
+
+
+
+
+
+
     public static void main(String args[]){
         
         JFrame ventana = new JFrame("Proyecto Dos");
         Juego juego = new Juego();
-
         ventana.add(juego);
-        ventana.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        ventana.setBackground(Color.black);
+        //ventana.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //ventana.setUndecorated(true);
+        ventana.setSize(755, 735);
+        ventana.setLocation(300,30);
+        ventana.setBackground(Color.CYAN);
         //ventana.setIconImage(new ImageIcon());
         ventana.setVisible(true);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
 
         while(true){
             try {
@@ -76,4 +95,25 @@ public class Juego extends JPanel{
             juego.repaint();
         }
     }
+
+    static class fondoPanel extends JPanel{
+        private java.awt.Image imagen;
+        
+        public void paint(Graphics g){
+            imagen = new ImageIcon(getClass().getResource("/Imagenes/inicial.png")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    } 
+
+
+
+
+
+
+
+
+
+
 }

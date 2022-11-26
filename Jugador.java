@@ -26,9 +26,9 @@ public class Jugador extends Personaje {
 
     public void paint(Graphics grafico) {
         grafico.setColor(Color.green);
-        grafico.fillOval(getPosX() * 20, getPosY() * 20, ancho, alto);
+        grafico.fillOval(getPosX() * 18, getPosY() * 17, ancho, alto);
         grafico.setColor(Color.black);
-        grafico.drawRect(getPosX() * 20, getPosY() * 19, ancho, alto);
+        grafico.drawRect(getPosX() * 18, getPosY() * 17, ancho, alto);
 
     }
 
@@ -46,7 +46,7 @@ public class Jugador extends Personaje {
             }
         }
         if (evento.getKeyCode() == 83) {
-            if(mapa[getPosX()][(getPosY())+3] != 1){
+            if(mapa[getPosX()][(getPosY())+1] != 1){
                 setPosY(getPosY()+1);
             }
         }
