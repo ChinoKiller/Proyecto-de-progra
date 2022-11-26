@@ -79,7 +79,7 @@ public class Juego extends JPanel{
         //ventana.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //ventana.setUndecorated(true);
         ventana.setSize(755, 735);
-        ventana.setLocation(300,30);
+        ventana.setLocationRelativeTo(null);
         ventana.setBackground(Color.CYAN);
         //ventana.setIconImage(new ImageIcon());
         ventana.setVisible(true);
