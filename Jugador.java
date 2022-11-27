@@ -41,23 +41,35 @@ public class Jugador extends Personaje {
         int[][] mapa = mapaObj.obtenerMapa();
 
         if (evento.getKeyCode() == 87) {
-            if (mapa[getPosX()][(getPosY())-1] != 1) {
-                setPosY(getPosY()-1);  
+            if (mapa[getPosX()][(getPosY())-1] == 0) {
+                mapaObj.setPosicionEnMatriz(getPosX(), getPosY(), 0);
+                setPosY(getPosY()-1);
+                mapaObj.setPosicionEnMatriz(getPosX(), getPosY(), 2);
+                mapa = mapaObj.obtenerMapa(); //esto fue desesperación xd.
             }
         }
         if (evento.getKeyCode() == 83) {
-            if(mapa[getPosX()][(getPosY())+1] != 1){
+            if(mapa[getPosX()][(getPosY())+1] == 0){
+                mapaObj.setPosicionEnMatriz(getPosX(), getPosY(), 0);
                 setPosY(getPosY()+1);
+                mapaObj.setPosicionEnMatriz(getPosX(), getPosY(), 2);
+                mapa = mapaObj.obtenerMapa();
             }
         }
         if (evento.getKeyCode() == 65) {
-            if (mapa[(getPosX()-1)][getPosY()] != 1) {
+            if (mapa[(getPosX()-1)][getPosY()] == 0) {
+                mapaObj.setPosicionEnMatriz(getPosX(), getPosY(), 0);
                 setPosX(getPosX()-1);
+                mapaObj.setPosicionEnMatriz(getPosX(), getPosY(), 2);
+                mapa = mapaObj.obtenerMapa();
             }
         }
         if (evento.getKeyCode() == 68) {
-            if (mapa[(getPosX())+1][getPosY()] != 1) {
+            if (mapa[(getPosX())+1][getPosY()] == 0) {
+                mapaObj.setPosicionEnMatriz(getPosX(), getPosY(), 0);
                 setPosX(getPosX()+1);
+                mapaObj.setPosicionEnMatriz(getPosX(), getPosY(), 2);
+                mapa = mapaObj.obtenerMapa();
             }
         }
     }

@@ -83,8 +83,8 @@ public class Mapa {
         return this.mapa;
     }
 
-    public void setPosicionEnMatriz(int columna, int fila, int numeroDeObjeto){//esto nos va a servir para posicionar el objeto
-        this.mapa[columna][fila] = numeroDeObjeto;
+    public void setPosicionEnMatriz(int fila, int columna, int numeroDeObjeto){//esto nos va a servir para posicionar el objeto
+        this.mapa[fila][columna] = numeroDeObjeto; //Filas son las horizontales, columnas las verticales, le dí vuelta a eso.
     }
 
 

@@ -25,11 +25,9 @@ public class Enemigo extends Personaje {
 
     }
 
- 
 
     @Override
     public void moverse() {
-        
     }
 
     @Override

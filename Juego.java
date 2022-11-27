@@ -70,6 +70,8 @@ public class Juego extends JPanel{
     public void paint (Graphics grafico){ //Aquí se va a hacer cada print.
         mapa.paint(grafico);
 
+        mapa.setPosicionEnMatriz(enemigo1.getPosX(), enemigo1.getPosY(), 3);
+
         personaje.paint(grafico);
 
         enemigo1.paint(grafico);
@@ -94,17 +96,6 @@ public class Juego extends JPanel{
         piedra14.paint(grafico);
         piedra15.paint(grafico);
     }
-
-
-
-
-
-
-
-
-
-
-
 
     public static void main(String args[]){
         
