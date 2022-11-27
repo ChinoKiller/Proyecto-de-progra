@@ -16,7 +16,7 @@ public class Jugador extends Personaje {
     private int alto;
 
     
-    
+
     
     public Jugador(int posX, int posY) {
         super(10, posX, posY);
