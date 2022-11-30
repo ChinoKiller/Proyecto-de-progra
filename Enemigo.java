@@ -42,25 +42,20 @@ public class Enemigo extends Personaje {
     
     public void colocarSeñuelo(){
         if(puedeColocarSeñuelo){ //primera condición: que no lo haya colocado antes
+            int[][] mapa = mapaObj.obtenerMapa();
             if(numeroAleatorio1o2() == 2){ //segunda condición: de manera aleatoria se determina si se colocará el señuelo
-                if (mapaObj[(getPosX()-1)][getPosY()] == 0){
+                if (mapa[(getPosX()-1)][getPosY()] == 0){
                     //colocar señuelo a la izquierda del enemigo
-                }else if(mapaObj[(getPosX()+1)][getPosY()] == 0){
+                }else if(mapa[(getPosX()+1)][getPosY()] == 0){
                     //colocar señuelo a la derecha del enemigo
-                }}else if(mapaObj[(getPosX())][getPosY()-1] == 0){
+                }}else if(mapa[(getPosX())][getPosY()-1] == 0){
                     //colocar señuelo a la y-1 del enemigo
-                }else if(mapaObj[(getPosX())][getPosY()+1] == 0){
+                }else if(mapa[(getPosX())][getPosY()+1] == 0){
                     //colocar señuelo a la y+1 del enemigo
                 }
                 puedeColocarSeñuelo = false;
             }
         }
-
-
-
-
-
-
     }
     
     public void actualizarEntornoJugador(Mapa mapa){ //recibe el mapa principal y actualiza el local con las posiciones de los objetos. 
@@ -75,5 +70,4 @@ public class Enemigo extends Personaje {
 
 
 
- 
 }
