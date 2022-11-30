@@ -13,7 +13,7 @@ public abstract class Personaje {
     
     
     
-    public abstract void moverse();
+
 
     public Personaje(int vida, int posX, int posY) {
         this.vida = vida;

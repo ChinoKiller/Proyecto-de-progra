@@ -66,12 +66,7 @@ public class Jugador extends Personaje {
 
     }
 
-    @Override
-    public void moverse() {
-        
-        
-    }
-
+   
     @Override
     public void morir() {
         
@@ -83,4 +78,12 @@ public class Jugador extends Personaje {
         
         
     }
+
+
+    public void actualizarEntornoJugador(Mapa mapa){ //recibe el mapa principal y actualiza el local con las posiciones de los objetos.
+       mapaObj = mapa; 
+    }
+
+
+
 }

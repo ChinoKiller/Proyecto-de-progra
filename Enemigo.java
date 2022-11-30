@@ -48,7 +48,7 @@ public class Enemigo extends Personaje {
                     //colocar señuelo a la izquierda del enemigo
                 }else if(mapa[(getPosX()+1)][getPosY()] == 0){
                     //colocar señuelo a la derecha del enemigo
-                }}else if(mapa[(getPosX())][getPosY()-1] == 0){
+                }else if(mapa[(getPosX())][getPosY()-1] == 0){
                     //colocar señuelo a la y-1 del enemigo
                 }else if(mapa[(getPosX())][getPosY()+1] == 0){
                     //colocar señuelo a la y+1 del enemigo

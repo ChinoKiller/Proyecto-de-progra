@@ -16,14 +16,11 @@ public class Mapa {
             for(columna = 0; columna<numeroColumnas; columna++){
                 if(mapa[fila][columna]==1){
                     grafico.setColor(Color.blue);
-                    grafico.fillRect(fila*18, columna*17, ancho, alto); //NO TOQUE ESTO POR EL AMOR DE JESUCRISTO
-                    //grafico.setColor(Color.black);
-                    grafico.drawRect(fila*18, columna*17, ancho, alto);
+                    grafico.fillRect(fila*18, columna*17, ancho, alto); 
                 }if(mapa[fila][columna] != 1){
                     grafico.setColor(Color.black);
                     grafico.fillRect(fila*18, columna*17, ancho, alto);
                     grafico.setColor(Color.white);
-                    //grafico.drawRect(fila*18, columna*17, ancho, alto);   //esta vara dibuja el contorno, se puede eliminar
                 }
             }
         }
@@ -83,13 +80,24 @@ public class Mapa {
         return this.mapa;
     }
 
-    public void setPosicionEnMatriz(int fila, int columna, int numeroDeObjeto){//esto nos va a servir para posicionar el objeto
-        this.mapa[fila][columna] = numeroDeObjeto; //Filas son las horizontales, columnas las verticales, le dí vuelta a eso.
+    public void setPosicionEnMatriz(int x, int y, int numeroDeObjeto){//esto nos va a servir para posicionar el objeto
+        this.mapa[x][y] = numeroDeObjeto; //X son las horizontales, Y las verticales.
     }
 
+    public int getPosiciónEnMatriz(int x, int y){ //nos devuelve el contenido de cierta posición.
+        return mapa[x][y];
+    }
 
-
-
+    public void limpiarMapa(){ //es implementado en Juego para no dejar una "estela" de un objeto en movimiento
+        for (int y=1; y < 40; y++) {
+            for (int x=1; x < 40; x++) {
+              if(mapa[x][y] != 0){
+                mapa[x][y] = 0;
+              }
+            }
+            System.out.println(); // QUITAAAAAAAR, esto es para separar lo de consola
+          }
+    }
 
 
 
