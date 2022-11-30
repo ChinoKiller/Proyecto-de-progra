@@ -53,6 +53,7 @@ public class Juego extends JPanel{
             @Override
             public void keyPressed(KeyEvent e) {
                 personaje.movimiento(e);
+                personaje.picar(e);
                 
             }
 
@@ -120,7 +121,7 @@ public class Juego extends JPanel{
 
         while(true){
             try {
-                Thread.sleep(8);
+                Thread.sleep(20);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

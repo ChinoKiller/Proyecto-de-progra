@@ -22,6 +22,7 @@ public class Jugador extends Personaje {
         super(10, posX, posY);
         this.ancho = 20;
         this.alto = 20;
+        this.cantPiedras = 0;
     }
 
     public void paint(Graphics grafico) {
@@ -31,6 +32,7 @@ public class Jugador extends Personaje {
         //grafico.drawRect(getPosX() * 18, getPosY() * 17, ancho, alto);
 
     }
+
 
 
     public void setCantPiedras(int cantPiedras) {
@@ -62,8 +64,15 @@ public class Jugador extends Personaje {
         }
     }
 
-    public void picar() {
-
+    public void picar(KeyEvent evento) {
+        int[][] mapa = mapaObj.obtenerMapa();
+        if(evento.getKeyCode() == 32){
+            if (mapa[(getPosX()-1)][getPosY()] == 4 || mapa[(getPosX()+1)][getPosY()] == 4 || mapa[(getPosX())][getPosY()+1] == 4 || mapa[(getPosX())][getPosY()-1] == 4) {
+                cantPiedras +=1;
+            }else if (mapa[(getPosX()-1)][getPosY()] == 5 || mapa[(getPosX()+1)][getPosY()] == 5 || mapa[(getPosX())][getPosY()+1] == 5 || mapa[(getPosX())][getPosY()-1] == 5) {
+                setVida(getVida()-1);
+            }
+        }
     }
 
    
