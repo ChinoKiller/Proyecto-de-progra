@@ -127,6 +127,7 @@ public class Juego extends JPanel{
             }
             actualizarMatriz();
             juego.repaint();
+            perseguir();
             System.out.println();
             for (int y=0; y < 41; y++) {
                 for (int x=0; x < 41; x++) {
@@ -176,6 +177,13 @@ public class Juego extends JPanel{
     }
 
 
+    public static void perseguir(){
+        enemigo1.movimiento(personaje);
+        enemigo2.movimiento(personaje);
+        enemigo3.movimiento(personaje);
+        enemigo4.movimiento(personaje);
+        enemigo5.movimiento(personaje);
+    }
 
 
 
