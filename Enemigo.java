@@ -11,12 +11,14 @@ public class Enemigo extends Personaje {
     private boolean puedeColocarSeñuelo;
     private int ancho;
     private int alto;
+    private int contadorDeVueltas;
 
     public Enemigo(int posicionEnX, int posicionEnY){
         super(2,posicionEnX,posicionEnY);
         this.ancho = 20;
         this.alto = 20;
         this.puedeColocarSeñuelo = true;
+        this.contadorDeVueltas = 0;
     }
 
     public void paint(Graphics grafico) {
@@ -29,42 +31,45 @@ public class Enemigo extends Personaje {
 
     public void movimiento(Personaje personaje) {
         int[][] mapa = mapaObj.obtenerMapa();
-
-        if((getPosX() < personaje.getPosX())){
-            if(mapa[getPosX()+1][getPosY()] == 0){
-                setPosX(getPosX()+1);   
-            } else if(mapa[getPosX()+1][getPosY()] != 0 && getPosY() > personaje.getPosY()){
-                setPosY(getPosY()-1);
-            } else if(mapa[getPosX()+1][getPosY()] != 0 && getPosY() < personaje.getPosY()){
-                setPosY(getPosY()+1);
+        contadorDeVueltas +=1;
+        if(contadorDeVueltas == 100){
+            if((getPosX() < personaje.getPosX())){
+                if(mapa[getPosX()+1][getPosY()] == 0){
+                    setPosX(getPosX()+1);   
+                } else if(mapa[getPosX()+1][getPosY()] != 0 && getPosY() > personaje.getPosY()){
+                    setPosY(getPosY()-1);
+                } else if(mapa[getPosX()+1][getPosY()] != 0 && getPosY() < personaje.getPosY()){
+                    setPosY(getPosY()+1);
+                }
             }
-        }
-        if(getPosX() > personaje.getPosX()){
-            if(mapa[getPosX()-1][getPosY()] == 0){
-                setPosX(getPosX()-1);
-            } else if(mapa[getPosX()-1][getPosY()] != 0 && getPosY() > personaje.getPosY()){
-                setPosY(getPosY()-1);
-            } else if(mapa[getPosX()-1][getPosY()] != 0 && getPosY() < personaje.getPosY()){
-                setPosY(getPosY()+1);
+            if(getPosX() > personaje.getPosX()){
+                if(mapa[getPosX()-1][getPosY()] == 0){
+                    setPosX(getPosX()-1);
+                } else if(mapa[getPosX()-1][getPosY()] != 0 && getPosY() > personaje.getPosY()){
+                    setPosY(getPosY()-1);
+                } else if(mapa[getPosX()-1][getPosY()] != 0 && getPosY() < personaje.getPosY()){
+                    setPosY(getPosY()+1);
+                }
             }
-        }
-        if(getPosY() < personaje.getPosY()){
-            if(mapa[getPosX()][getPosY()+1] == 0){
-                setPosY(getPosY()+1);
-            } else if(mapa[getPosX()][getPosY()+1] != 0 && getPosX() > personaje.getPosX()){
-                setPosX(getPosX()-1);
-            } else if(mapa[getPosX()][getPosY()+1] != 0 && getPosX() < personaje.getPosX()){
-                setPosX(getPosX()+1);
+            if(getPosY() < personaje.getPosY()){
+                if(mapa[getPosX()][getPosY()+1] == 0){
+                    setPosY(getPosY()+1);
+                } else if(mapa[getPosX()][getPosY()+1] != 0 && getPosX() > personaje.getPosX()){
+                    setPosX(getPosX()-1);
+                } else if(mapa[getPosX()][getPosY()+1] != 0 && getPosX() < personaje.getPosX()){
+                    setPosX(getPosX()+1);
+                }
             }
-        }
-        if(getPosY() > personaje.getPosY()){
-            if(mapa[getPosX()][getPosY()-1] == 0){
-                setPosY(getPosY()-1);
-            } else if(mapa[getPosX()][getPosY()-1] != 0 && getPosX() > personaje.getPosX()){
-                setPosX(getPosX()-1);
-            } else if(mapa[getPosX()][getPosY()-1] != 0 && getPosX() < personaje.getPosX()){
-                setPosX(getPosX()+1);
+            if(getPosY() > personaje.getPosY()){
+                if(mapa[getPosX()][getPosY()-1] == 0){
+                    setPosY(getPosY()-1);
+                } else if(mapa[getPosX()][getPosY()-1] != 0 && getPosX() > personaje.getPosX()){
+                    setPosX(getPosX()-1);
+                } else if(mapa[getPosX()][getPosY()-1] != 0 && getPosX() < personaje.getPosX()){
+                    setPosX(getPosX()+1);
+                }
             }
+            contadorDeVueltas = 0;
         }
     }
    
