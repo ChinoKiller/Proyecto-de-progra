@@ -14,7 +14,7 @@ import java.awt.event.KeyListener;
 
 
 public class Juego extends JPanel{
-
+   
     static Mapa mapa = new Mapa();
 
     static Jugador personaje = new Jugador(1,1);
@@ -24,6 +24,15 @@ public class Juego extends JPanel{
     static Enemigo enemigo3 = new Enemigo((int)(Math.random()*(39-22+1)+22),(int)(Math.random()*(10-1+1)+1));
     static Enemigo enemigo4 = new Enemigo((int)(Math.random()*(39-22+1)+22),(int)(Math.random()*(24-16+1)+16));
     static Enemigo enemigo5 = new Enemigo((int)(Math.random()*(39-22+1)+22),(int)(Math.random()*(39-30+1)+30));
+
+    static Señuelo señuelo1 = new Señuelo();
+    static Señuelo señuelo2 = new Señuelo();
+    static Señuelo señuelo3 = new Señuelo();
+    static Señuelo señuelo4 = new Señuelo();
+    static Señuelo señuelo5 = new Señuelo();
+
+
+
 
     static Piedra piedra1 = new Piedra((int)(Math.random()*(13-7+1)+7),(int)(Math.random()*(6-1+1)+1));
     static Piedra piedra2 = new Piedra((int)(Math.random()*(7-1+1)+1),(int)(Math.random()*(17-10+1)+10));
@@ -47,19 +56,42 @@ public class Juego extends JPanel{
 
             @Override
             public void keyTyped(KeyEvent e) {
-                
+               
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
                 personaje.movimiento(e);
                 personaje.picar(e);
-                
+                piedra1.picar(e);
+                piedra2.picar(e);
+                piedra3.picar(e);
+                piedra4.picar(e);
+                piedra5.picar(e);
+                piedra6.picar(e);
+                piedra7.picar(e);
+                piedra8.picar(e);
+                piedra9.picar(e);
+                piedra10.picar(e);
+                piedra11.picar(e);
+                piedra12.picar(e);
+                piedra13.picar(e);
+                piedra14.picar(e);
+                piedra15.picar(e);
+
+
+
+
+
+
+
+
+
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                
+               
             }
         });
         setFocusable(true);
@@ -102,6 +134,35 @@ public class Juego extends JPanel{
         piedra13.paint(grafico);
         piedra14.paint(grafico);
         piedra15.paint(grafico);
+        if(señuelo1.fueLlamado==true){
+            señuelo1.paint1(grafico);
+        }else{
+            señuelo1.paint(grafico);
+        }
+        
+        if(señuelo2.fueLlamado==true){
+            señuelo2.paint1(grafico);
+        }else{
+            señuelo2.paint(grafico);
+        }
+        
+        if(señuelo3.fueLlamado==true){
+            señuelo3.paint1(grafico);
+        }else{
+            señuelo3.paint(grafico);
+        }
+        
+        if(señuelo4.fueLlamado==true){
+            señuelo4.paint1(grafico);
+        }else{
+            señuelo4.paint(grafico);
+        }
+        
+        if(señuelo5.fueLlamado==true){
+            señuelo5.paint1(grafico);
+        }else{
+            señuelo5.paint(grafico);
+        }
     }
 
     public static void main(String args[]){
@@ -121,25 +182,21 @@ public class Juego extends JPanel{
 
         while(true){
             try {
-                Thread.sleep(20);
+                Thread.sleep(8);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            actualizarMatriz();
-            juego.repaint();
             perseguir();
-            System.out.println();
-            for (int y=0; y < 41; y++) {
-                for (int x=0; x < 41; x++) {
-                  System.out.print (mapa.getPosiciónEnMatriz(x, y) + " ");
-                }
-                System.out.println();
-              }
+            actualizarMatriz();
+            señuelos();
+            juego.repaint();
+           
         }
     }
 
 
     public static void actualizarMatriz(){ //actualiza la posición de cada elemento en la matríz principal
+    
         mapa.limpiarMapa();
         mapa.setPosicionEnMatriz(enemigo1.getPosX(), enemigo1.getPosY(), 3);
         mapa.setPosicionEnMatriz(enemigo2.getPosX(), enemigo2.getPosY(), 3);
@@ -162,6 +219,11 @@ public class Juego extends JPanel{
         mapa.setPosicionEnMatriz(piedra13.getPosX(), piedra13.getPosY(), 4);
         mapa.setPosicionEnMatriz(piedra14.getPosX(), piedra14.getPosY(), 4);
         mapa.setPosicionEnMatriz(piedra15.getPosX(), piedra15.getPosY(), 4);
+        mapa.setPosicionEnMatriz(señuelo1.getPosX(), señuelo1.getPosY(), 5);
+        mapa.setPosicionEnMatriz(señuelo2.getPosX(), señuelo2.getPosY(), 5);
+        mapa.setPosicionEnMatriz(señuelo3.getPosX(), señuelo3.getPosY(), 5);
+        mapa.setPosicionEnMatriz(señuelo4.getPosX(), señuelo4.getPosY(), 5);
+        mapa.setPosicionEnMatriz(señuelo5.getPosX(), señuelo5.getPosY(), 5);
         actualizarEntornos();
     }    
     
@@ -174,7 +236,25 @@ public class Juego extends JPanel{
         enemigo3.actualizarEntornoJugador(mapa);
         enemigo4.actualizarEntornoJugador(mapa);
         enemigo5.actualizarEntornoJugador(mapa);
+        piedra1.actualizarEntornoJugador(mapa);
+        piedra2.actualizarEntornoJugador(mapa);
+        piedra3.actualizarEntornoJugador(mapa);
+        piedra4.actualizarEntornoJugador(mapa);
+        piedra5.actualizarEntornoJugador(mapa);
+        piedra6.actualizarEntornoJugador(mapa);
+        piedra7.actualizarEntornoJugador(mapa);
+        piedra8.actualizarEntornoJugador(mapa);
+        piedra9.actualizarEntornoJugador(mapa);
+        piedra10.actualizarEntornoJugador(mapa);
+        piedra11.actualizarEntornoJugador(mapa);
+        piedra12.actualizarEntornoJugador(mapa);
+        piedra13.actualizarEntornoJugador(mapa);
+        piedra14.actualizarEntornoJugador(mapa);
+        piedra15.actualizarEntornoJugador(mapa);
+
+        
     }
+
 
 
     public static void perseguir(){
@@ -185,9 +265,33 @@ public class Juego extends JPanel{
         enemigo5.movimiento(personaje);
     }
 
+    public static void spawnSeñuelo(Enemigo enemigo, Señuelo señuelo){
+        int[][] mapaLocal = mapa.obtenerMapa();
+        if(enemigo.colocarSeñuelo()){
+            if (mapaLocal[(enemigo.getPosX()-1)][enemigo.getPosY()] == 0){         
+                señuelo.setPosX(enemigo.getPosX()-1);
+                señuelo.setPosY(enemigo.getPosY());
+            }else if(mapaLocal[(enemigo.getPosX()+1)][enemigo.getPosY()] == 0){       
+                señuelo.setPosX(enemigo.getPosX()+1);
+                señuelo.setPosY(enemigo.getPosY());
+            }else if(mapaLocal[(enemigo.getPosX())][enemigo.getPosY()-1] == 0){           
+                señuelo.setPosX(enemigo.getPosX());
+                señuelo.setPosY(enemigo.getPosY()-1);
+            }else if(mapaLocal[(enemigo.getPosX())][enemigo.getPosY()+1] == 0){          
+                señuelo.setPosX(enemigo.getPosX());
+                señuelo.setPosY(enemigo.getPosY()+1);
+            }
+            señuelo.fueLlamado = true;
+        }
+    }
 
 
-
-
+    public static void señuelos(){
+        spawnSeñuelo(enemigo1, señuelo1);
+        spawnSeñuelo(enemigo2, señuelo2);
+        spawnSeñuelo(enemigo3, señuelo3);
+        spawnSeñuelo(enemigo4, señuelo4);
+        spawnSeñuelo(enemigo5, señuelo5);
+    }
 
 }

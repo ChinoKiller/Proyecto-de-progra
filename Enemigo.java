@@ -11,14 +11,16 @@ public class Enemigo extends Personaje {
     private boolean puedeColocarSeñuelo;
     private int ancho;
     private int alto;
-    private int contadorDeVueltas;
+    private int contadorDeVueltasMovimiento;
+    private int contadorDeVueltasSeñuelo;
 
     public Enemigo(int posicionEnX, int posicionEnY){
         super(2,posicionEnX,posicionEnY);
         this.ancho = 20;
         this.alto = 20;
         this.puedeColocarSeñuelo = true;
-        this.contadorDeVueltas = 0;
+        this.contadorDeVueltasSeñuelo = 0;
+        this.contadorDeVueltasMovimiento = 0;
     }
 
     public void paint(Graphics grafico) {
@@ -31,8 +33,8 @@ public class Enemigo extends Personaje {
 
     public void movimiento(Personaje personaje) {
         int[][] mapa = mapaObj.obtenerMapa();
-        contadorDeVueltas +=1;
-        if(contadorDeVueltas == 100){
+        contadorDeVueltasMovimiento +=1;
+        if(contadorDeVueltasMovimiento == 50){
             if((getPosX() < personaje.getPosX())){
                 if(mapa[getPosX()+1][getPosY()] == 0){
                     setPosX(getPosX()+1);   
@@ -69,37 +71,42 @@ public class Enemigo extends Personaje {
                     setPosX(getPosX()+1);
                 }
             }
-            contadorDeVueltas = 0;
+            contadorDeVueltasMovimiento = 0;
+            atacar();
         }
     }
    
 
     @Override
-    public void morir() {
-        
+    public boolean morir() {
+        if(getVida() == 0){
+            setPosX(0);
+            setPosY(0);
+        }
+        return true;
     }
 
     @Override
     public void atacar() {
-        
+        int[][] mapa = mapaObj.obtenerMapa();
+        if(mapa[(getPosX()-1)][getPosY()] == 2 || mapa[(getPosX()+1)][getPosY()] == 2 || mapa[(getPosX())][getPosY()+1] == 2 || mapa[(getPosX())][getPosY()-1] == 2){
+            setVida(0);
+        } 
     }
     
-    public void colocarSeñuelo(){
-        if(puedeColocarSeñuelo){ //primera condición: que no lo haya colocado antes
-            int[][] mapa = mapaObj.obtenerMapa();
-            if(numeroAleatorio1o2() == 2){ //segunda condición: de manera aleatoria se determina si se colocará el señuelo
-                if (mapa[(getPosX()-1)][getPosY()] == 0){
-                    //colocar señuelo a la izquierda del enemigo
-                }else if(mapa[(getPosX()+1)][getPosY()] == 0){
-                    //colocar señuelo a la derecha del enemigo
-                }else if(mapa[(getPosX())][getPosY()-1] == 0){
-                    //colocar señuelo a la y-1 del enemigo
-                }else if(mapa[(getPosX())][getPosY()+1] == 0){
-                    //colocar señuelo a la y+1 del enemigo
+    public boolean colocarSeñuelo(){
+        if(puedeColocarSeñuelo){
+            contadorDeVueltasSeñuelo +=1;
+            if(contadorDeVueltasSeñuelo == 150){
+                int desicion = numeroAleatorio1o2();
+                if(desicion == 2){
+                    puedeColocarSeñuelo = false;
+                    return true;
                 }
-                puedeColocarSeñuelo = false;
+                contadorDeVueltasSeñuelo = 0;
             }
         }
+        return false;
     }
     
     public void actualizarEntornoJugador(Mapa mapa){ //recibe el mapa principal y actualiza el local con las posiciones de los objetos. 

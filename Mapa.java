@@ -89,6 +89,7 @@ public class Mapa {
     }
 
     public void limpiarMapa(){ //es implementado en Juego para no dejar una "estela" de un objeto en movimiento
+        mapa[0][0] = 1;
         for (int y=1; y < 40; y++) {
             for (int x=1; x < 40; x++) {
               if(mapa[x][y] != 0){

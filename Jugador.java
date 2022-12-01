@@ -75,10 +75,20 @@ public class Jugador extends Personaje {
         }
     }
 
+    public void bajarVida(){
+        int[][] mapa = mapaObj.obtenerMapa();
+        if(mapa[(getPosX()-1)][getPosY()] == 3 || mapa[(getPosX()+1)][getPosY()] == 3 || mapa[(getPosX())][getPosY()+1] == 3 || mapa[(getPosX())][getPosY()-1] == 3){
+            setVida(getVida()-2);
+        }
+    }
    
     @Override
-    public void morir() {
-        
+    public boolean morir() {
+        if(getVida() == 0){
+            return true;
+        }else{
+            return false;
+        }
         
     }
 

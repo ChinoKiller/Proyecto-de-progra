@@ -8,18 +8,19 @@ public class Señuelo {
     private int alto = 20;
     private int posX;
     private int posY;
+    public boolean fueLlamado = false;
 
-    public Señuelo(int posicionEnX, int posicionEnY){
-        this.posX = posicionEnX;
-        this.posY = posicionEnY;
-    }
+    
 
-    public void paint(Graphics grafico) {
+    public void paint1(Graphics grafico) {
         grafico.setColor(Color.GRAY);
         grafico.fillOval(getPosX() * 18, getPosY() * 17, ancho, alto);
         grafico.setColor(Color.black);
         //grafico.drawRect(getPosX() * 18, getPosY() * 17, ancho, alto);
-
+    }
+    public void paint(Graphics grafico) {
+        grafico.setColor(Color.blue);
+        grafico.fillRect(posX*18, posY*17, ancho, alto); 
     }
 
     public void explotar() {
@@ -42,5 +43,7 @@ public class Señuelo {
         this.posY = posicionEnY;
     }
 
-    
+    public void actualizarEntornoJugador(Mapa mapa){ //recibe el mapa principal y actualiza el local con las posiciones de los objetos.
+        mapaObj = mapa; 
+     }
 }

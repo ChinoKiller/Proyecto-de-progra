@@ -21,9 +21,14 @@ public abstract class Personaje {
         this.posY = posY;
     }
 
-    public abstract void morir();
+    public abstract boolean morir();
 
     public abstract void atacar();
+
+   
+
+
+
 
     public int getVida() {
         return vida;

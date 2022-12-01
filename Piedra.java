@@ -1,5 +1,7 @@
 import java.awt.Graphics;
 
+import java.awt.event.KeyEvent;
+
 import java.awt.Color;
 
 public class Piedra {
@@ -42,4 +44,20 @@ public class Piedra {
     public void setPosY(int posicionEnY) {
         this.posY = posicionEnY;
     }
+    
+    public void picar(KeyEvent evento) { 
+        int[][] mapa = mapaObj.obtenerMapa();
+        if(evento.getKeyCode() == 32 && mapa[(getPosX()-1)][getPosY()] == 2 || mapa[(getPosX()+1)][getPosY()] == 2 || mapa[(getPosX())][getPosY()+1] == 2 || mapa[(getPosX())][getPosY()-1] == 2){
+            setPosX(0);
+            setPosY(0);
+        } 
+    }
+
+
+    public void actualizarEntornoJugador(Mapa mapa){ //recibe el mapa principal y actualiza el local con las posiciones de los objetos.
+        mapaObj = mapa; 
+     }
+
+
+
 }
