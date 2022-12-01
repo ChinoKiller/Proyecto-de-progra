@@ -78,7 +78,11 @@ public class Juego extends JPanel{
                 piedra13.picar(e);
                 piedra14.picar(e);
                 piedra15.picar(e);
-
+                señuelo1.picar(e);
+                señuelo2.picar(e);
+                señuelo3.picar(e);
+                señuelo4.picar(e);
+                señuelo5.picar(e);
 
 
 
