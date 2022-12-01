@@ -33,21 +33,37 @@ public class Enemigo extends Personaje {
         if((getPosX() < personaje.getPosX())){
             if(mapa[getPosX()+1][getPosY()] == 0){
                 setPosX(getPosX()+1);   
+            } else if(mapa[getPosX()+1][getPosY()] != 0 && getPosY() > personaje.getPosY()){
+                setPosY(getPosY()-1);
+            } else if(mapa[getPosX()+1][getPosY()] != 0 && getPosY() < personaje.getPosY()){
+                setPosY(getPosY()+1);
             }
         }
         if(getPosX() > personaje.getPosX()){
             if(mapa[getPosX()-1][getPosY()] == 0){
-            setPosX(getPosX()-1);
+                setPosX(getPosX()-1);
+            } else if(mapa[getPosX()-1][getPosY()] != 0 && getPosY() > personaje.getPosY()){
+                setPosY(getPosY()-1);
+            } else if(mapa[getPosX()-1][getPosY()] != 0 && getPosY() < personaje.getPosY()){
+                setPosY(getPosY()+1);
             }
         }
         if(getPosY() < personaje.getPosY()){
             if(mapa[getPosX()][getPosY()+1] == 0){
                 setPosY(getPosY()+1);
+            } else if(mapa[getPosX()][getPosY()+1] != 0 && getPosX() > personaje.getPosX()){
+                setPosX(getPosX()-1);
+            } else if(mapa[getPosX()][getPosY()+1] != 0 && getPosX() < personaje.getPosX()){
+                setPosX(getPosX()+1);
             }
         }
         if(getPosY() > personaje.getPosY()){
             if(mapa[getPosX()][getPosY()-1] == 0){
                 setPosY(getPosY()-1);
+            } else if(mapa[getPosX()][getPosY()-1] != 0 && getPosX() > personaje.getPosX()){
+                setPosX(getPosX()-1);
+            } else if(mapa[getPosX()][getPosY()-1] != 0 && getPosX() < personaje.getPosX()){
+                setPosX(getPosX()+1);
             }
         }
     }
